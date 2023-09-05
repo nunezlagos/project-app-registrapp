@@ -1,0 +1,15 @@
+
+<ion-content class="fondo_img">
+  
+  <h1 class="ion-text-center" style=" padding-top: 20px; color: black; margin: 0 auto;">IDENTIFICANDO QR</h1>
+  <ion-card class="ion-text-center" style="padding-top: 20px;">
+    <img alt="Silhouette of mountains" src="https://img.freepik.com/vector-gratis/vector-camara-vintage_53876-36680.jpg" />
+
+    <ion-button class="custom-button" style="padding-top: 50px;" id="open-loading">Re-intentar carga de QR</ion-button>  
+  <ion-loading trigger="open-loading" message="Identificando QR" [duration]="7000" spinner="circles"></ion-loading>
+  </ion-card>
+
+  <div class="ion-text-center">
+    <ion-button class="custom-button" style="padding-top: 50px;" routerLink="/inicioa" >Volver a inicio</ion-button> <!--FALTA ONLICK-->
+  </div>
+</ion-content>

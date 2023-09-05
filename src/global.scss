@@ -24,3 +24,42 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+
+
+
+  /* Importa la fuente Roboto desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+/* Aplica Roboto como la fuente predeterminada */
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+
+/* Estilo global para los botones ion */
+ion-button.custom-button {
+    --background: #ffb800; /* Color de fondo naranja */
+    --color: rgb(0, 0, 0); /* Color de texto blanco */
+    --border-radius: 10px; /* Radio de borde redondeado */
+    --padding-start: 20px; /* Espaciado interno en el inicio */
+    --padding-end: 20px; /* Espaciado interno en el final */
+    width: 250px;
+  }
+  
+  .fondo_logo {
+    height: 10vh; /* Asegura que la imagen ocupe toda la altura de la pantalla /
+    display: block; / Asegura que la imagen se comporte como un elemento en línea /
+    padding-bottom: 30px; / Centra la imagen horizontalmente en el div padre si lo deseas */
+    text-shadow: 
+    3px 3px 0 rgb(0, 0, 0),
+    
+
+  }
+
+  app-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }

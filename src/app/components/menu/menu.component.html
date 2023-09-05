@@ -1,0 +1,50 @@
+
+<!--Agregar css para difuminar menu , y arreglar los iconos para espaciarlos-->
+
+<ion-menu contentId="main-content" menuId="fisrt" side="start">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>RegisterApp</ion-title><!--Agregar un icono en esta parte en algun momento-->
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding" color="light">
+    <ion-list color="light">
+      <!-- Mostrar contenido específico para profesor
+      
+      <div *ngIf="isProfesor()" >
+        <ion-item *ngFor="let ruta of lista_rutas_profesor" [routerLink]="ruta.ruta">
+          {{ruta.name}}
+        </ion-item>
+      </div>-->
+      
+      <!-- Mostrar contenido para estudiantes -->
+
+
+      
+      <div *ngIf="isEstudiante()" >
+
+        
+
+
+        <ion-item *ngFor="let ruta of lista_rutas_estudiantes" [routerLink]="ruta.ruta">
+          <ion-icon [name]="ruta.icon"></ion-icon>
+          <ion-label>{{ruta.name}}</ion-label>
+        </ion-item>
+        <ion-item (click)="logout()">
+          <ion-icon name="log-out"></ion-icon> Cerrar sesión
+        </ion-item>
+      </div>
+      <!-- Mostrar contenido no logueado -->
+      <div *ngIf="!isEstudiante()" >
+        <ion-item *ngFor="let ruta of lista_rutas_login" [routerLink]="ruta.ruta">
+          <ion-icon [name]="ruta.icon"></ion-icon>
+          <ion-label>{{ruta.name}}</ion-label>
+        </ion-item>
+      </div>
+      
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<div class="ion-page" id="main-content">
+  
+</div>

@@ -1,0 +1,86 @@
+.fondo_img {
+    background: url('/assets/img/img_inicio.jpg') no-repeat center center fixed;
+    background-size: cover; /* Ajusta el tamaño para cubrir el área sin estirar */
+    height: 100vh; /* Asegura que el fondo ocupe toda la altura de la pantalla */
+  
+    ion-card {
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+      background-color: rgba(113, 113, 113, 0); /* Agrega un fondo semi-transparente al formulario */
+      border-radius: 10px; /* Ajusta el radio de borde para el formulario */
+    }
+  
+    ion-list {
+      margin-bottom: 16px;
+    }
+  
+    ion-input {
+      border: 1px solid #cccccc00;
+      padding: 8px;
+      border-radius: 5px;
+      width: 100%;
+    }
+  
+    /* Estilos para los botones */
+    ion-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+  
+    ion-back-button {
+      color: #ffB800; /* Color de texto para el botón de retroceso */
+    }
+  
+    ion-button {
+        width: 100%;
+        max-width: 200px; /* Ancho máximo para el botón */
+        background-color: #ffB800; /* Color de fondo para el botón "Crear Cuenta" */
+        color: #000; /* Color de texto para el botón "Crear Cuenta" (negro) */
+        border: none;
+        border-radius: 5px;
+        padding: 10px 0;
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+      
+    /* Estilos para el botón de retroceso */
+    ion-back-button {
+      --icon-color: #ffB800; /* Color del icono del botón de retroceso */
+    }
+  
+    /* Estilos para el botón de retroceso en iOS */
+    ion-back-button.mode-ios .button-inner {
+      font-size: 16px;
+    }
+  
+    /* Estilos para el botón "Crear Cuenta" en iOS */
+    ion-button.mode-ios .button-inner {
+      font-size: 16px;
+    }
+  
+    /* Estilos para el botón de retroceso en Android */
+    ion-back-button.mode-md .button-inner {
+      font-size: 16px;
+    }
+  
+    /* Estilos para el botón "Crear Cuenta" en Android */
+    ion-button.mode-md .button-inner {
+      font-size: 16px;
+    }
+  
+    /* Consulta de medios para dispositivos móviles */
+    @media (max-width: 768px) {
+      ion-card {
+        max-width: 90%; /* Reducir el ancho máximo en dispositivos móviles */
+      }
+  
+      ion-button {
+        max-width: 100%; /* Ancho máximo del botón en dispositivos móviles */
+      }
+    }
+  }
