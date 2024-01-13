@@ -3,45 +3,23 @@
     <ion-img class="fondo_logo" src="/assets/img/logoduoc.png"></ion-img>
   </div>
   <div class="center-container">
-    <h1>ASIGNATURAS DISPONIBLES</h1>
-
-    <!-- Lista de asignaturas con porcentajes ocultos inicialmente -->
+    <h1>Asignaturas Inscritas</h1>
+    <div *ngFor="let asignatura of mostarAsignaturas">
+      <!-- Lista de asignaturas con porcentajes ocultos inicialmente -->
     <ion-list class="list-container mi-lista">
-      <ion-item onclick="togglePorcentaje('programacion')">Programación Móvil</ion-item>
-      <!-- Agrega más asignaturas con sus respectivos porcentajes si es necesario -->
+      <ion-item >
+        <ion-label>{{asignatura.nombre}}</ion-label>
+      </ion-item>
     </ion-list>
 
     <!-- Mostrar porcentaje cuando se selecciona una asignatura -->
     <div id="programacionPorcentaje" class="porcentaje hidden ">
-      [80% De asistencia - 8/10 clases asistidas]
-    </div>
-    <ion-list class="list-container mi-lista">
-      <ion-item onclick="togglePorcentaje('programacion')">Calidad de software</ion-item>
-      <!-- Agrega más asignaturas con sus respectivos porcentajes si es necesario -->
-    </ion-list>
+      <ion-label>{{asignatura.nombre}}</ion-label>
+    </div >
 
-    <!-- Mostrar porcentaje cuando se selecciona una asignatura -->
-    <div id="programacionPorcentaje" class="porcentaje hidden">
-      [60% De asistencia - 6/10 clases asistidas]
-    </div>
-    <ion-list class="list-container mi-lista">
-      <ion-item onclick="togglePorcentaje('programacion')">Estadistica Descriptiva</ion-item>
-      <!-- Agrega más asignaturas con sus respectivos porcentajes si es necesario -->
-    </ion-list>
-
-    <!-- Mostrar porcentaje cuando se selecciona una asignatura -->
-    <div id="programacionPorcentaje" class="porcentaje hidden">
-      [10% De asistencia - 1/10 clases asistidas]
-    </div>
-    <ion-list class="list-container mi-lista">
-      <ion-item onclick="togglePorcentaje('programacion')">Programacion avanzada I </ion-item>
-      <!-- Agrega más asignaturas con sus respectivos porcentajes si es necesario -->
-    </ion-list>
-
-    <!-- Mostrar porcentaje cuando se selecciona una asignatura -->
-    <div id="programacionPorcentaje" class="porcentaje hidden">
-      [70% De asistencia - 7/10 clases asistidas]
-    </div>
-    <ion-button class="custom-button" routerLink="/inicioa"> Volver</ion-button>
+    
+    </div> 
   </div>
+    <ion-button class="custom-button" routerLink="/inicioa"> Volver</ion-button>
+  
 </ion-content>

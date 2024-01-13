@@ -1,0 +1,25 @@
+<ion-content  color="{{ scanActive ? '' : 'light' }}" [style.--background]="scanActive ? '#00000000' : '#fff'">
+  
+  <div class="ion-text-center">
+    <ion-button  style="padding-top: 500px;" class="custom-button" (click)="startScanner()" *ngIf="!scanActive">
+      Escanear</ion-button>
+      <p class="ion-text-center" *ngIf="result && !scanActive">{{ result }}</p>
+
+  </div>
+  
+  
+  <ion-row class="scanner-buttons" *ngIf="scanActive"> 
+    <ion-col class="ion-text-center">
+      <ion-button class="custom-button" (click)="stopScanner()" >Detener Escaner Omg</ion-button>
+    </ion-col>
+  </ion-row>
+
+  <div class="scan-box" *ngIf="scanActive" >
+  </div>
+
+  <div class="ion-text-center">
+    <ion-button class="custom-button" style="padding-top: 50px;" routerLink="/inicioa"  *ngIf="!scanActive">Volver a inicio</ion-button> <!--FALTA ONLICK-->
+  </div>
+
+
+</ion-content>

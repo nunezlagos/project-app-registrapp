@@ -1,20 +1,20 @@
 <!--Agregar metodo para pasar de pasword a texto (el ojito)-->
-<ion-content class="fondo_img">
+<ion-content>
   <div class="center-content" style="padding-top: 160px;">
-      <ion-img class="fondo_logo" src="/assets/img/logoduoc.png"></ion-img>
+      
     </div>
   
   <div class="center-content">
     <form >
       <ion-list>
         <ion-item>
-          <ion-input [(ngModel)]="username" name="username" placeholder="Correo alumno"></ion-input>
+          <ion-input [(ngModel)]="credenciales.username" name="username" placeholder="Correo alumno"></ion-input>
         </ion-item>
       </ion-list>
       <br>
         <ion-list>
           <ion-item>
-            <ion-input [(ngModel)]="password" name="password"  type="password" placeholder="Contraseña"></ion-input>
+            <ion-input [(ngModel)]="credenciales.password" name="password"  type="password" placeholder="Contraseña"></ion-input>
           </ion-item>
         </ion-list>
     </form>

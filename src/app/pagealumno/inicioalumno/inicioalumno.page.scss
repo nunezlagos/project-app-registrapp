@@ -41,8 +41,34 @@ ion-card {
   
   
   .fondo_img {
-    background: url('/assets/img/img_inicioa.jpg') no-repeat center center fixed;
+    background: url('/assets/img/img_alumno.jpg') no-repeat center center fixed;
     background-size: cover ; /* Ajusta el tamaño para cubrir el área sin estirar */
     height: 100vh; /* Asegura que el fondo ocupe toda la altura de la pantalla */
+    }
+
+  .imagen {
+    width: 300px; /* Ajusta el ancho según tus necesidades */
+    height: 300px; /* Ajusta la altura según tus necesidades */
+    border-radius: 100%; /* Aplica un borde redondeado para obtener la forma de círculo */
+    object-fit: cover; /* Ajusta la imagen para cubrir completamente el contenedor sin distorsión */
+    border: 3px solid #fff; /* Añade un borde blanco opcional alrededor de la imagen */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Añade una sombra para resaltar la imagen */
+  }
+
+  .contenedor-circular {
+    width: 300px; /* Ajusta el tamaño del contenedor según tus necesidades */
+    height: 300px; /* Ajusta el tamaño del contenedor según tus necesidades */
+    border-radius: 50%; /* Hace que el contenedor sea circular */
+    overflow: hidden; /* Asegura que la imagen circular se ajuste correctamente */
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+  }
+  
+  .imagen-circular {
+    width: 95%; /* Ajusta el tamaño de la imagen al 100% del contenedor */
+    height: 95%; /* Ajusta el tamaño de la imagen al 100% del contenedor */
+    border-radius: 50%; /* Hace que la imagen sea circular */
+    object-fit: cover; /* Ajusta el tamaño de la imagen manteniendo la proporción y recortando el exceso */
   }
   

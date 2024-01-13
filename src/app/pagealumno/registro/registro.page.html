@@ -1,41 +1,54 @@
 
-
 <div class="fondo_img">
   <ion-content>
-    <div class="center-content" style="padding-top: 160px;">
-      <ion-img class="fondo_logo" src="/assets/img/logoduoc.png"></ion-img>
+    <div >
+      <ion-card style="margin-top: 50px;">
+        <ion-card-content>
+
+          <ion-list>
+            <ion-item>
+              <ion-input [(ngModel)]="datos.nombre" type="text" placeholder="Nombre Completo"></ion-input>
+            </ion-item>
+          </ion-list>
+
+          <ion-list>
+            <ion-item>
+              <ion-label>Selecciona una opción</ion-label>
+              <ion-select  [(ngModel)]="datos.carrera" placeholder="Seleeciona Carrera">
+                <ion-select-option value="Analista Programador Computacional">Analista Programador Computacional.</ion-select-option>
+                <ion-select-option value="Ingenieria en Informatica">Ingenieria en Informatica.</ion-select-option>
+                <ion-select-option value="Comunicación y Redes">Comunicación y Redes.</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+
+          <ion-list>
+            <ion-item>
+              <ion-input [(ngModel)]="datos.correo" type="email" placeholder="Correo institucional"></ion-input>
+            </ion-item>
+          </ion-list>
+  
+          <ion-list>
+            <ion-item>
+              <ion-input  [(ngModel)]="datos.password" type="password" placeholder="Contraseña"></ion-input>
+            </ion-item>
+          </ion-list>
+
+          <ion-list>
+            <ion-item>
+              <ion-input type="password" placeholder="Confirmar contraseña"></ion-input>
+            </ion-item>
+          </ion-list>
+  
+          
+  
+          <ion-buttons slot="start">
+            <ion-back-button defaultHref="/" text="Cancelar" mode="ios" routerLink="/inicio">
+            </ion-back-button>
+            <ion-button style="color: black;" routerLink="/inicio" mode="ios" (click)="registrar()">Crear Cuenta</ion-button>
+          </ion-buttons>
+        </ion-card-content>
+      </ion-card>
     </div>
-    <ion-card>
-      <ion-card-content>
-        <ion-list>
-          <ion-item>
-            <ion-input type="email" placeholder="Correo institucional"></ion-input>
-          </ion-item>
-        </ion-list>
-
-        <ion-list>
-          <ion-item>
-            <ion-input type="password" placeholder="Contraseña"></ion-input>
-            <ion-input type="password" placeholder="Confirmar contraseña"></ion-input>
-          </ion-item>
-        </ion-list>
-
-        <ion-list>
-          <ion-item>
-            <ion-input type="number" placeholder="Telefono de contacto (opcional)"></ion-input>
-          </ion-item>
-        </ion-list>
-
-        <ion-buttons slot="start">
-          <ion-back-button defaultHref="/"
-            text="Cancelar" mode="ios" routerLink="/inicio">
-          </ion-back-button>
-          <ion-button style="color: black;" routerLink="/inicio"
-
-            mode="ios"
-          >Crear Cuenta</ion-button>
-        </ion-buttons>
-      </ion-card-content>
-    </ion-card>
   </ion-content>
 </div>

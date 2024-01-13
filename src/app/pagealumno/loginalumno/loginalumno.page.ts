@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AutentificacionService } from 'src/app/autentificacion.service';
+import { AutentificacionService } from 'src/app/services/autentificacion.service';
 import { Router } from '@angular/router';
+import { InteraccionusuarioService } from 'src/app/services/interaccionusuario.service';
+
+
 
 @Component({
   selector: 'app-loginalumno',
@@ -8,27 +11,45 @@ import { Router } from '@angular/router';
   styleUrls: ['./loginalumno.page.scss'],
 })
 export class LoginalumnoPage implements OnInit {
-
-  username: string = '';
-  password: string = '';
-
-
-  constructor(private authService: AutentificacionService, private router: Router) {}
-
-  login() {
-    const isLogged = this.authService.login(this.username, this.password);
-    if (isLogged) {
-      // Inicio de sesión exitoso, redirige a la página principal de estudiantes
-      this.router.navigate(['/inicioa']);
-    } else {
-      // Inicio de sesión fallido, muestra un mensaje de error o realiza otra acción
-    }
-  }
-
+  
+  credenciales = {
+    username: '',
+    password: ''
+  };
+  
+  constructor(private authService: AutentificacionService, private router: Router, private interaccion:InteraccionusuarioService ) {}
 
   ngOnInit() {
-    console.log('InicioPage initialized');
-  
+    console.log('Login Alumno Page')
+    
   }
-
+  
+  async login() {
+    await this.interaccion.showLoading('Ingresando...')
+    console.log('credenciales ->', this.credenciales);
+    //Capturar la promesa y el error debido.
+    const respuesta = await this.authService.login(this.credenciales.username, this.credenciales.password).catch( error => {
+      console.log('Error de inicio de sesion');
+      this.interaccion.hideLoading();
+      this.interaccion.presentToast('Credenciales Incorrectas.')
+    });
+    if (respuesta) {
+      console.log('respuesta ->',respuesta);
+      this.interaccion.hideLoading();
+      this.interaccion.presentToast('Ingresado Correctamente');
+      this.router.navigate(['/inicioa']);
+    }
+  }
 }
+
+
+
+    
+    
+
+
+
+
+
+
+

@@ -3,9 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { listarutase } from 'src/app/models/lista_menu';
 import { listarutasl } from 'src/app/models/lista_menu';
 import { MenuController } from '@ionic/angular';
-import { AutentificacionService } from 'src/app/autentificacion.service';
+import { AutentificacionService } from 'src/app/services/autentificacion.service';
 import { Router } from '@angular/router'
 import { Icon } from 'ionicons/dist/types/components/icon/icon';
+import { InteraccionusuarioService } from 'src/app/services/interaccionusuario.service';
+import { FiresotreService } from 'src/app/services/firesotre.service';
+import { Estudiante } from 'src/app/models/usuario';
 
 @Component({
   selector: 'app-menu',
@@ -13,24 +16,17 @@ import { Icon } from 'ionicons/dist/types/components/icon/icon';
   styleUrls: ['./menu.component.scss'],
 })
 export class MenuComponent  implements OnInit {
-  
-
-/*
-  public lista_rutas_profesor :listarutasp[] = [
-   
-    {name:'Inicio', ruta:'/iniciop',},
-    {name:'Generar Qr', ruta:'/qr',},
-    {name:'Asisencia',ruta:'/lista'},
-    {name:'Secciones',ruta:'/seccion'}
-  ]
-*/
+  isAuthenticated = false; // Variable para almacenar el estado de autenticación
+  perfil: 'Estudiante' | 'admin' | 'Profesor'| null = null;
+  nombre:string|null=null;
+  foto:string | undefined;
+  scanActive='ture';
 
   public lista_rutas_estudiantes :listarutase[] = [
     /*ELEMENTOS DEL MENU CON SU RESPECTIVO RUTA*/
     {name:'Inicio', ruta:'/inicioa',icon:'home-outline'},
-    {name:'Escanear Qr', ruta:'/qralumno',icon:'scan-outline',},
+    {name:'Escanear Qr', ruta:'/qr',icon:'scan-outline',},
     {name:'Cursos',ruta:'/asignaturas',icon:'book-outline'},
-   
   ]
   public lista_rutas_login: listarutasl []=[
 
@@ -39,49 +35,59 @@ export class MenuComponent  implements OnInit {
     {name:'Iniciar Sesion',ruta:'/logina',icon:'log-in-outline'},
     {name:'Registro Usuario', ruta:'/registro',icon:'person-add-outline'},
     {name:'Recuperar Contraseña',ruta:'/recuperar',icon:'medkit-outline'},
-    
-    
   ]
-  
 
-  constructor(private menu: MenuController,private ServicioAutentificacion: AutentificacionService, private router: Router) {}
+  constructor(private menu: MenuController,
+              private ServicioAutentificacion: AutentificacionService, 
+              private router: Router,
+              private interaccion:InteraccionusuarioService,
+              private firestore:FiresotreService) {
 
-  
-  // Funciones para verificar el tipo de usuario
-  
+                this.ServicioAutentificacion.getEstado().subscribe( respuesta => {
+                  if (respuesta){
+                    console.log('Esta logueado');
+                    this.isAuthenticated=true;
+                    this.getDatos(respuesta.uid)
 
-  isEstudiante(): boolean {
-    return this.ServicioAutentificacion.isLoggedIn();
-  }
+                  }
 
-   // Función para cerrar la sesión
-  logout() {
-    this.ServicioAutentificacion.logout();
-    this.router.navigate(['/inicio']); // Cambia '/login' por la ruta deseada
-  }
+                  else {
+                    console.log('No esta logueado');
+                    this.isAuthenticated=false;
+                  }
+                }
 
-
-  openFirst() {
-    // Habilita el menú con el nombre 'first' y luego lo abre
-    this.menu.enable(true, 'first');
-    this.menu.open('first');
-  }
-
-  openEnd() {
-    // Abre el menú con el nombre 'end'
-    this.menu.open('end');
-  }
-
-  openCustom() {
-    // Habilita el menú con el nombre 'custom' y luego lo abre
-    this.menu.enable(true, 'custom');
-    this.menu.open('custom');
-  }
-
+                )
+              }
 
   ngOnInit() {
     
   }
 
-}
+  logout(){
+    this.ServicioAutentificacion.logout();
+    this.interaccion.presentToast('Sesión Finalizada.')
+    console.clear();
+    this.router.navigate(['/inicio']);
 
+  }
+  //Obtiene el rol del estudiante , nombre y se lo asigna a la variable perfil.
+  getDatos( uid:string ) {
+    const path='Estudiantes';
+    const id=uid;
+    this.firestore.getDocumento<Estudiante>(path,id).subscribe( respuesta => {
+      //console.log('Datos ->', respuesta )
+      if (respuesta){
+        this.perfil=respuesta.rol
+        this.nombre=respuesta.nombre
+        this.foto=respuesta.foto
+      }
+
+
+
+    });
+
+
+
+  }
+}

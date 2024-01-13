@@ -1,0 +1,63 @@
+ion-card {
+    max-width: 300px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0); /* Fondo transparente */
+    box-shadow: none; /* Eliminar la sombra */
+  }
+  
+  ion-card img {
+    border-radius: 50%;
+  }
+  
+  ion-card ion-card-header,
+  ion-card ion-card-content {
+    text-align: center;
+  }
+  
+  .info-grid {
+    background-color: #f5f2f2; /* Fondo gris */
+    border: 2px solid black; /* Borde negro */
+     /* Espaciado interno con valor de padding-top a 0 */
+    margin: 60px auto; /* Margen exterior de 150px y centrado horizontal */
+    max-width: 400px; /* Máximo ancho */
+    width: 100%; /* Ancho completo */
+    color: rgb(0, 0, 0); /* Color de texto negro */
+    border-radius: 20px; /* Redondear bordes */
+  }
+  
+  .info-row {
+    margin: 0; /* Elimina el margen entre filas */
+    display: flex;
+    align-items: center;
+  }
+  
+  .info-label,
+  .info-text {
+    font-size: 12px; /* Tamaño de letra */
+    text-align: center;
+    color: black; /* Color de texto negro */
+  }
+  
+  
+  .fondo_img {
+    background: url('/assets/img/img_inicioa.jpg') no-repeat center center fixed;
+    background-size: cover ; /* Ajusta el tamaño para cubrir el área sin estirar */
+    height: 100vh; /* Asegura que el fondo ocupe toda la altura de la pantalla */
+  }
+
+  ion-input {
+    border: 1px solid #cccccc00;
+    padding: 8px;
+    border-radius: 5px;
+    width: 100%;
+    
+  }
+
+  .cuadroalert{
+    background-color: black;
+  }
+
+
+
+  
